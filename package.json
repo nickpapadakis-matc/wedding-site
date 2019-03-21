@@ -1,0 +1,19 @@
+{
+  "name": "wedding-site",
+  "version": "1.0.0",
+  "description": "site for nick and cassies wedding rsvps",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicholas Papadakis-Schneider",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19",
+    "nodemon": "^1.18.10",
+    "passport": "^0.4.0",
+    "validator": "^10.11.0"
+  }
+}
