@@ -11,10 +11,12 @@ const UserSchema = new Schema({
   },
   coming: {
     type: Boolean,
-    required: true
+    required: true,
+    default: true
   },
   email: {
-    type: String
+    type: String,
+    default: null
   },
   food: {
     type: String,

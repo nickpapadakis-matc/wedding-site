@@ -13,10 +13,13 @@ router.get('/test', (req, res) => res.json({ msg: 'Users works' }));
 //  @desc   submits user details to db
 //  @access Public
 router.post('/rsvp', (req, res) => {
-  User.findOne({ name: req.body.name }).then(user => {
-    if (user) {
-      return res.status(400).json({ name: 'Name already exists' });
-    } else {
+  User.findOne({ guests: { name: req.body.name } }).then(user => {
+    if (!user) {
+      return res.status(400).json({
+        name:
+          'Sorry we cannot find that name in our database, please check to make sure you used the spelling on the invite you revieved in the mail. '
+      });
+    } else if (user) {
       const newUser = new User({
         name: req.body.name,
         coming: req.body.coming,
