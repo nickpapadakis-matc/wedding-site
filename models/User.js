@@ -23,13 +23,16 @@ const UserSchema = new Schema({
     required: true
   },
   hasGuest: {
-    type: Boolean
+    type: Boolean,
+    default: null
   },
   guestName: {
-    type: String
+    type: String,
+    default: null
   },
   guestFood: {
-    type: String
+    type: String,
+    default: null
   },
   date: {
     type: Date,

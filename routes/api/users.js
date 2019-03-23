@@ -23,7 +23,7 @@ router.post('/rsvp', (req, res) => {
       User.findOne({ name: req.body.name }).then(user => {
         if (user) {
           return res.status(400).json({
-            name: 'It looks like you have a RSVP with us'
+            name: 'It looks like you already have a RSVP with us'
           });
         } else {
           const newUser = new User({
@@ -43,6 +43,34 @@ router.post('/rsvp', (req, res) => {
       });
     }
   });
+});
+
+//  @route  GET api/users/all
+//  @desc   gets all guests name, email, rsvp status, food choice, has guest?, guest name, guest food
+//  @access Public
+router.get('/all', (req, res) => {
+  const errors = {};
+  User.find()
+    .populate('user', [
+      'name',
+      'email',
+      'coming',
+      'food',
+      'hasGuest',
+      'guestName',
+      'guestFood'
+    ])
+    .then(users => {
+      if (!users) {
+        errors.noprofile = 'There are no guests';
+        return res.status(404).json(errors);
+      }
+
+      res.json(users);
+    })
+    .catch(err =>
+      res.status(404).json({ users: 'There are no guests at the moment' })
+    );
 });
 
 module.exports = router;
