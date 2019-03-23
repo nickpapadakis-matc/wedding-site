@@ -20,17 +20,27 @@ router.post('/rsvp', (req, res) => {
           'Sorry we cannot find that name in our database, please check to make sure you used the spelling on the invite you revieved in the mail. '
       });
     } else if (user) {
-      const newUser = new User({
-        name: req.body.name,
-        coming: req.body.coming,
-        email: req.body.email,
-        food: req.body.food
+      User.findOne({ name: req.body.name }).then(user => {
+        if (user) {
+          return res.status(400).json({
+            name: 'It looks like you have a RSVP with us'
+          });
+        } else {
+          const newUser = new User({
+            name: req.body.name,
+            coming: req.body.coming,
+            email: req.body.email,
+            food: req.body.food,
+            hasGuest: req.body.hasGuest,
+            guestName: req.body.guestName,
+            guestFood: req.body.guestFood
+          });
+          newUser
+            .save()
+            .then(user => res.json(user))
+            .catch(err => console.log(err));
+        }
       });
-
-      newUser
-        .save()
-        .then(user => res.json(user))
-        .catch(err => console.log(err));
     }
   });
 });

@@ -22,6 +22,15 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  hasGuest: {
+    type: Boolean
+  },
+  guestName: {
+    type: String
+  },
+  guestFood: {
+    type: String
+  },
   date: {
     type: Date,
     default: Date.now
