@@ -20,7 +20,7 @@ const UserSchema = new Schema({
   },
   food: {
     type: String,
-    required: true
+    default: 'Steak'
   },
   hasGuest: {
     type: Boolean,
