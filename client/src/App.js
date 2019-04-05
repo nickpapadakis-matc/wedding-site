@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/Header';
 import HomeButton from './components/Homebutton';
 import BasicForm from './components/BasicForm';
+import GetGuestName from './components/GetGuestName';
 
 /*
  * colors 

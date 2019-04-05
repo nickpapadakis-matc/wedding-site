@@ -26,6 +26,7 @@ router.post('/rsvp', (req, res) => {
           errors.guestName = 'It looks like you already have a RSVP with us';
           return res.status(400).json(errors);
         } else {
+          errors.guestName = 'Found You! You are now offical';
           const newUser = new User({
             name: req.body.name,
             coming: req.body.coming,
@@ -76,7 +77,6 @@ router.get('/all', (req, res) => {
 router.post('/guest', (req, res) => {
   const errors = {};
   const success = {};
-
   User.findOne({ guests: { name: req.body.name } }).then(user => {
     if (!user) {
       errors.guestName =
@@ -88,9 +88,8 @@ router.post('/guest', (req, res) => {
           errors.guestName = 'It looks like you already have a RSVP with us';
           return res.status(400).json(errors);
         } else {
-          success.guestName =
-            'Looks like we have a match. Lets get some more info from you.';
-          res.status(200).json(success);
+          errors.guestName = 'Found you!';
+          return res.status(200).json(errors);
         }
       });
     }
