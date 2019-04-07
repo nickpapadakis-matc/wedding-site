@@ -1,159 +1,124 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { StyledButton1 } from './StyledButton1';
-import { HeaderKeyFrame } from './Styles/KeyFrames/HeadKeyFrame';
+import StyledInput from './StyledInput';
+import StyledForm from './StyledForm';
+import { Box } from 'rebass';
+import LabelWrapper from './LabelWrapper';
+import BasicContainer from './BasicContainer';
+import StyledRadio from './StyledRadio';
 
-const Form = styled.form`
-  animation: ${HeaderKeyFrame} 2s ease forwards;
-  margin: 0 auto;
-`;
-
-const H2 = styled.h2`
-  color: red;
-  width: 80%;
-  text-align: center;
-  font-size: 2rem;
-`;
-
-const Input = styled.input`
-  width: 40%;
-  height: 20ems;
-  background-color: transparent;
-  color: #000;
-  border: none;
-  border-bottom: 1px solid #563a21;
-  outline: none;
-  font-size: 2rem;
-  text-align: center;
-`;
-
-const Container = styled.div`
-  display: inline-block;
-  text-align: center;
-  margin: 0 auto;
-  margin-left: 3em;
-  margin-bottom: 3em;
-`;
-
-const H3 = styled.h3`
-  text-align: center;
-  margin: 0 auto;
-`;
-
-const FoodContainer = styled.div`
+const FoodContainer = styled(Box)`
   display: block;
 `;
 
-const StyledRadio = styled.input`
-  cursor: pointer;
-  color: #563a21;
-  width: 150%;
-`;
-
 const GetGuestName = props => (
-  <Form noValidate onSubmit={props.onPostSubmit}>
-    <h1>
-      {props.guestName} {props.firstName}
-    </h1>
-    <Container />
-    <h2>
+  <StyledForm buttonText='RSVP' onSubmit={props.onPostSubmit}>
+    <LabelWrapper color='#B77B82'>
+      {props.firstName}, {props.guestName}
+    </LabelWrapper>
+    <BasicContainer />
+    <LabelWrapper>
       <label for='plusOne'>Who is your guest for the wedding?</label>
-    </h2>
+    </LabelWrapper>
     <p>
-      <Input
-        id='plusOne'
+      <StyledInput
         onChange={props.onChange}
         name='plusOne'
-        type='text'
-        placeholder='Guest Name?'
+        id='PlusOne'
+        placeHolder='Enter your guests name'
       />
     </p>
+    <BasicContainer />
     <FoodContainer>
-      <h2>
+      <LabelWrapper>
         <label for='food'>What is your choice of food?</label>
-      </h2>
-      <H3>
-        <Container>
+      </LabelWrapper>
+      <BasicContainer />
+      <BasicContainer>
+        <LabelWrapper>
           <label for='Steak'>
-            Steak
             <StyledRadio
               id='food'
               onChange={props.onChange}
               name='food'
-              type='radio'
               value='Steak'
             />
+            Steak
           </label>
-        </Container>
-        <Container>
+        </LabelWrapper>
+      </BasicContainer>
+      <BasicContainer>
+        <LabelWrapper>
           <label for='Salmon'>
-            Salmon
             <StyledRadio
               id='food'
               onChange={props.onChange}
               name='food'
-              type='radio'
               value='Salmon'
             />
+            Salmon
           </label>
-        </Container>
-        <Container>
+        </LabelWrapper>
+      </BasicContainer>
+      <BasicContainer>
+        <LabelWrapper>
           <label for='Chicken'>
-            Chicken
             <StyledRadio
               id='food'
               onChange={props.onChange}
               name='food'
-              type='radio'
               value='Chicken'
             />
+            Chicken
           </label>
-        </Container>
-      </H3>
-      <h2>
+        </LabelWrapper>
+      </BasicContainer>
+
+      <LabelWrapper>
         <label for='guestFood'>What is you guests choice of food?</label>
-      </h2>
-      <H3>
-        <Container>
+      </LabelWrapper>
+      <BasicContainer />
+      <BasicContainer>
+        <LabelWrapper>
           <label for='Steak'>
-            Steak
             <StyledRadio
               id='guestFood'
               onChange={props.onChange}
               name='guestFood'
-              type='radio'
               value='Steak'
             />
+            Steak
           </label>
-        </Container>
-        <Container>
+        </LabelWrapper>
+      </BasicContainer>
+      <BasicContainer>
+        <LabelWrapper>
           <label for='Salmon'>
-            Salmon
             <StyledRadio
               id='guestFood'
               onChange={props.onChange}
               name='guestFood'
-              type='radio'
               value='Salmon'
             />
+            Salmon
           </label>
-        </Container>
-        <Container>
+        </LabelWrapper>
+      </BasicContainer>
+      <BasicContainer>
+        <LabelWrapper>
           <label for='Chicken'>
-            Chicken
             <StyledRadio
               id='guestFood'
               onChange={props.onChange}
               name='guestFood'
-              type='radio'
               value='Chicken'
             />
+            Chicken
           </label>
-        </Container>
-      </H3>
+        </LabelWrapper>
+      </BasicContainer>
     </FoodContainer>
-    <StyledButton1 type='submit'>Submit</StyledButton1>
-  </Form>
+  </StyledForm>
 );
 
 export default GetGuestName;

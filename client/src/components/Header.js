@@ -5,15 +5,16 @@ import { Link } from 'react-router-dom';
 
 const Outter = styled(Flex)`
   background-color: #fffcd6;
-  min-height: 20vh;
-  color: #000;
+
+  margin: 0;
 `;
 const H1 = styled.h1`
   font-family: 'Life Savers', cursive;
-  margin-left: 5%;
+  margin: 0 auto;
+  padding: 50px;
   text-decoration: none;
-  font-size: 400%;
-  background: -webkit-linear-gradient(#2f4b26, #b77b82);
+  font-size: 3rem;
+  background: -webkit-linear-gradient(#fffcd6, #b77b82);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;

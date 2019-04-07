@@ -80,15 +80,17 @@ router.post('/guest', (req, res) => {
   User.findOne({ guests: { name: req.body.name } }).then(user => {
     if (!user) {
       errors.guestName =
-        'Sorry we cannot find that name in our database, please check to make sure you used the spelling on the invite you recieved in the mail.';
+        "unfortunately it doesn't look like we can find that name in our database, please double check to make sure you used the exact spelling on the invite you recieved in the mail.";
       return res.status(400).json(errors);
     } else if (user) {
       User.findOne({ name: req.body.name }).then(user => {
         if (user) {
-          errors.guestName = 'It looks like you already have a RSVP with us';
+          errors.guestName =
+            'It looks like you already have a RSVP with us. Please contact the couple if this information is incorrect.';
           return res.status(400).json(errors);
         } else {
-          errors.guestName = 'Found you!';
+          errors.guestName =
+            "We found you! Let's go ahead and grab  the rest of the information";
           return res.status(200).json(errors);
         }
       });

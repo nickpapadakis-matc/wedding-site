@@ -7,7 +7,7 @@ import StyledInput from './StyledInput';
 import CheckGuest from './CheckGuest';
 import GetGuestName from './GetGuestName';
 
-class BasicForm extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +41,7 @@ class BasicForm extends Component {
   onPostSubmit = e => {
     e.preventDefault();
 
-    const newGuest = {
+    const newRsvp = {
       name: this.state.guestName.toUpperCase(),
       guestName: this.state.plusOne.toUpperCase(),
       food: this.state.food,
@@ -49,18 +49,18 @@ class BasicForm extends Component {
     };
 
     axios
-      .post('/api/users/rsvp', newGuest)
+      .post('/api/users/rsvp', newRsvp)
       .then(res => this.setState({ success: true }))
       .catch(err => this.setState({ errors: err.response.data }));
   };
 
   onGetSubmit = e => {
     e.preventDefault();
-    const newGuest = {
+    const checkGuest = {
       name: this.state.guestName.toUpperCase()
     };
     axios
-      .post('/api/users/guest', newGuest)
+      .post('/api/users/guest', checkGuest)
       .then(res => this.setState({ errors: res.data, success: true }))
       .catch(err => this.setState({ errors: err.response.data }));
 
@@ -94,4 +94,4 @@ class BasicForm extends Component {
   }
 }
 
-export default BasicForm;
+export default Home;
