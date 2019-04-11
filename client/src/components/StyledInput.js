@@ -9,7 +9,7 @@ const Input = styled.input`
   border: none;
   border-bottom: 1px solid #563a21;
   outline: none;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: 'Life Savers', cursive;
   text-align: center;
   overflow: hidden;

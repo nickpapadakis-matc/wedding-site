@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const Radio = styled.input`
   cursor: pointer;
   color: #563a21;
-  width: 150%;
 `;
 
 const StyledRadio = props => (

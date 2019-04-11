@@ -6,6 +6,7 @@ import axios from 'axios';
 import StyledInput from './StyledInput';
 import CheckGuest from './CheckGuest';
 import GetGuestName from './GetGuestName';
+import YourRsvp from './YourRsvp';
 
 class Home extends Component {
   constructor(props) {
@@ -18,12 +19,13 @@ class Home extends Component {
       success: false,
       errors: {},
       firstName: '',
-      lastName: ''
+      lastName: '',
+      rsvp: false
     };
   }
 
   componentDidMount() {
-    this.setState({ success: false });
+    this.setState({ success: false, rsvp: false });
   }
 
   splitName = () => {
@@ -50,7 +52,7 @@ class Home extends Component {
 
     axios
       .post('/api/users/rsvp', newRsvp)
-      .then(res => this.setState({ success: true }))
+      .then(res => this.setState({ rsvp: true }))
       .catch(err => this.setState({ errors: err.response.data }));
   };
 
@@ -70,6 +72,18 @@ class Home extends Component {
   render() {
     const { errors } = this.state;
 
+    if (this.state.rsvp === true) {
+      return (
+        <YourRsvp
+          name={this.state.guestName}
+          guestName={this.state.plusOne}
+          food={this.state.food}
+          guestFood={this.state.guestFood}
+          firstName={this.state.firstName}
+        />
+      );
+    }
+
     if (this.state.success === true) {
       return (
         <GetGuestName
@@ -80,6 +94,7 @@ class Home extends Component {
           food={this.state.food}
           guestFood={this.state.guestFood}
           plusOne={this.state.plusOne}
+          rsvp={this.state.rsvp}
         />
       );
     }

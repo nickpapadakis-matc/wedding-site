@@ -6,7 +6,8 @@ import Header from './components/Header';
 import HomeButton from './components/Homebutton';
 import Home from './components/Home';
 import GetGuestName from './components/GetGuestName';
-
+import About from './components/About';
+import YourRsvp from './components/YourRsvp';
 /*
  * colors 
  #B77B82
@@ -36,6 +37,8 @@ class App extends Component {
             render={() => <HomeButton btnText={this.state.btnText} />}
           />
           <Route path='/Home' render={() => <Home />} />
+          <Route path='/About' render={() => <About />} />
+          <Route path='/YourRsvp' render={() => <YourRsvp />} />
         </div>
       </Router>
     );

@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex } from 'rebass';
+import { Flex, Box } from 'rebass';
 import { Link } from 'react-router-dom';
+import Nav from './Nav';
 
-const Outter = styled(Flex)`
+const Outter = styled(Box)`
   background-color: #fffcd6;
-
+  text-align: center;
   margin: 0;
+  padding: 2rem;
 `;
 const H1 = styled.h1`
   font-family: 'Life Savers', cursive;
   margin: 0 auto;
-  padding: 50px;
+
   text-decoration: none;
   font-size: 3rem;
   background: -webkit-linear-gradient(#fffcd6, #b77b82);
@@ -21,14 +23,35 @@ const H1 = styled.h1`
 
 const HeadLink = styled(Link)`
   text-decoration: none;
+  &:hover {
+    color: #248232;
+  }
+`;
+
+const NavItem = styled.div`
+  padding-left: 20px;
 `;
 
 const Header = props => (
-  <HeadLink to='/'>
-    <Outter>
+  <Outter>
+    <HeadLink to='/'>
       <H1>{props.title}</H1>
-    </Outter>
-  </HeadLink>
+    </HeadLink>
+    <Nav>
+      <NavItem>
+        <HeadLink to='/'>Home</HeadLink>
+      </NavItem>
+      <NavItem>
+        <HeadLink to='/Home'>GetStarted</HeadLink>
+      </NavItem>
+      <NavItem>
+        <HeadLink to='/About'>About</HeadLink>
+      </NavItem>
+      <NavItem>
+        <HeadLink to='/YourRsvp'>Your RSVP</HeadLink>
+      </NavItem>
+    </Nav>
+  </Outter>
 );
 
 export default Header;

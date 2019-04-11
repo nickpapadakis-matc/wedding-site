@@ -12,7 +12,7 @@ const FoodContainer = styled(Box)`
 `;
 
 const GetGuestName = props => (
-  <StyledForm buttonText='RSVP' onSubmit={props.onPostSubmit}>
+  <StyledForm link='/' buttonText='RSVP' onSubmit={props.onPostSubmit}>
     <LabelWrapper color='#B77B82'>
       {props.firstName}, {props.guestName}
     </LabelWrapper>
