@@ -6,8 +6,9 @@ import axios from 'axios';
 import StyledInput from './StyledInput';
 import CheckGuest from './CheckGuest';
 import GetGuestName from './GetGuestName';
+import YourRsvp from './YourRsvp';
 
-class BasicForm extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,12 +19,13 @@ class BasicForm extends Component {
       success: false,
       errors: {},
       firstName: '',
-      lastName: ''
+      lastName: '',
+      rsvp: false
     };
   }
 
   componentDidMount() {
-    this.setState({ success: false });
+    this.setState({ success: false, rsvp: false });
   }
 
   splitName = () => {
@@ -41,7 +43,7 @@ class BasicForm extends Component {
   onPostSubmit = e => {
     e.preventDefault();
 
-    const newGuest = {
+    const newRsvp = {
       name: this.state.guestName.toUpperCase(),
       guestName: this.state.plusOne.toUpperCase(),
       food: this.state.food,
@@ -49,18 +51,18 @@ class BasicForm extends Component {
     };
 
     axios
-      .post('/api/users/rsvp', newGuest)
-      .then(res => this.setState({ success: true }))
+      .post('/api/users/rsvp', newRsvp)
+      .then(res => this.setState({ rsvp: true }))
       .catch(err => this.setState({ errors: err.response.data }));
   };
 
   onGetSubmit = e => {
     e.preventDefault();
-    const newGuest = {
+    const checkGuest = {
       name: this.state.guestName.toUpperCase()
     };
     axios
-      .post('/api/users/guest', newGuest)
+      .post('/api/users/guest', checkGuest)
       .then(res => this.setState({ errors: res.data, success: true }))
       .catch(err => this.setState({ errors: err.response.data }));
 
@@ -69,6 +71,18 @@ class BasicForm extends Component {
 
   render() {
     const { errors } = this.state;
+
+    if (this.state.rsvp === true) {
+      return (
+        <YourRsvp
+          name={this.state.guestName}
+          guestName={this.state.plusOne}
+          food={this.state.food}
+          guestFood={this.state.guestFood}
+          firstName={this.state.firstName}
+        />
+      );
+    }
 
     if (this.state.success === true) {
       return (
@@ -80,6 +94,7 @@ class BasicForm extends Component {
           food={this.state.food}
           guestFood={this.state.guestFood}
           plusOne={this.state.plusOne}
+          rsvp={this.state.rsvp}
         />
       );
     }
@@ -94,4 +109,4 @@ class BasicForm extends Component {
   }
 }
 
-export default BasicForm;
+export default Home;

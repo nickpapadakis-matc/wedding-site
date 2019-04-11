@@ -7,11 +7,12 @@ const StyledButton = styled.button`
   background-color: #fffcd6;
   cursor: pointer;
   border-radius: 5%;
-  font-family: 'Cherry Cream Soda', cursive;
-  font-size: 3rem;
+  font-family: 'Delius Swash Caps', cursive;
+  font-size: 2rem;
   &:hover {
-    background: linear-gradient(to top right, #2f4b26 0%, #fffcd6 100%);
+    background: linear-gradient(to top right, #fffca6 0%, #fffcd6 100%);
   }
+  box-shadow: 1px 1px 1px 1px #563a21;
 `;
 
 export const StyledButton1 = props => <StyledButton {...props} />;

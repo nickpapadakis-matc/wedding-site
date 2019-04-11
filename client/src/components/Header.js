@@ -1,33 +1,57 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex } from 'rebass';
+import { Flex, Box } from 'rebass';
 import { Link } from 'react-router-dom';
+import Nav from './Nav';
 
-const Outter = styled(Flex)`
+const Outter = styled(Box)`
   background-color: #fffcd6;
-  min-height: 20vh;
-  color: #000;
+  text-align: center;
+  margin: 0;
+  padding: 2rem;
 `;
 const H1 = styled.h1`
   font-family: 'Life Savers', cursive;
-  margin-left: 5%;
+  margin: 0 auto;
+
   text-decoration: none;
-  font-size: 400%;
-  background: -webkit-linear-gradient(#2f4b26, #b77b82);
+  font-size: 3rem;
+  background: -webkit-linear-gradient(#fffcd6, #b77b82);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
 
 const HeadLink = styled(Link)`
   text-decoration: none;
+  &:hover {
+    color: #248232;
+  }
+`;
+
+const NavItem = styled.div`
+  padding-left: 20px;
 `;
 
 const Header = props => (
-  <HeadLink to='/'>
-    <Outter>
+  <Outter>
+    <HeadLink to='/'>
       <H1>{props.title}</H1>
-    </Outter>
-  </HeadLink>
+    </HeadLink>
+    <Nav>
+      <NavItem>
+        <HeadLink to='/'>Home</HeadLink>
+      </NavItem>
+      <NavItem>
+        <HeadLink to='/Home'>GetStarted</HeadLink>
+      </NavItem>
+      <NavItem>
+        <HeadLink to='/About'>About</HeadLink>
+      </NavItem>
+      <NavItem>
+        <HeadLink to='/YourRsvp'>Your RSVP</HeadLink>
+      </NavItem>
+    </Nav>
+  </Outter>
 );
 
 export default Header;

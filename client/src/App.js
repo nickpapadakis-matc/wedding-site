@@ -4,9 +4,10 @@ import './App.css';
 
 import Header from './components/Header';
 import HomeButton from './components/Homebutton';
-import BasicForm from './components/BasicForm';
+import Home from './components/Home';
 import GetGuestName from './components/GetGuestName';
-
+import About from './components/About';
+import YourRsvp from './components/YourRsvp';
 /*
  * colors 
  #B77B82
@@ -20,8 +21,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      heading: 'Nick and Cassie Get Married Is Under Construction',
-      btnText: 'RSVP'
+      heading: 'Cassie & Nick Wedding',
+      btnText: 'Get Started'
     };
   }
 
@@ -35,7 +36,9 @@ class App extends Component {
             path='/'
             render={() => <HomeButton btnText={this.state.btnText} />}
           />
-          <Route path='/BasicForm' render={() => <BasicForm />} />
+          <Route path='/Home' render={() => <Home />} />
+          <Route path='/About' render={() => <About />} />
+          <Route path='/YourRsvp' render={() => <YourRsvp />} />
         </div>
       </Router>
     );
