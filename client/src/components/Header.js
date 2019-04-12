@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Box } from 'rebass';
+import { Box } from 'rebass';
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
 
@@ -10,13 +10,17 @@ const Outter = styled(Box)`
   margin: 0;
   padding: 2rem;
 `;
-const H1 = styled.h1`
-  font-family: 'Life Savers', cursive;
-  margin: 0 auto;
 
+const H1 = styled.h1`
+  font-family: ${props => props.theme.fonts.primary.font4};
+  margin: 0 auto;
+  padding: 10px;
   text-decoration: none;
   font-size: 3rem;
-  background: -webkit-linear-gradient(#fffcd6, #b77b82);
+  background: -webkit-linear-gradient(
+    ${props => props.theme.colors.primary.creme},
+    ${props => props.theme.colors.primary.rose}
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
@@ -24,7 +28,8 @@ const H1 = styled.h1`
 const HeadLink = styled(Link)`
   text-decoration: none;
   &:hover {
-    color: #248232;
+    color: ${props => props.theme.colors.primary.lightGreen};
+    font-weight: bold;
   }
 `;
 

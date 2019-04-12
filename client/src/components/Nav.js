@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { Flex } from 'rebass';
 
 const NavBar = styled(Flex)`
-  color: #b77b82;
+  color: ${props => props.theme.colors.primary.rose};
   font-size: 1.2rem;
-  font-family: 'Life Savers', cursive;
+  font-family: ${props => props.theme.fonts.primary.font4};
   margin: 0 auto;
 `;
 

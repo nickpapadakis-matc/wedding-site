@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import { StyledButton1 } from './StyledButton1';
-import { HeaderKeyFrame } from './Styles/KeyFrames/HeadKeyFrame';
 import axios from 'axios';
-import StyledInput from './StyledInput';
 import CheckGuest from './CheckGuest';
 import GetGuestName from './GetGuestName';
 import YourRsvp from './YourRsvp';

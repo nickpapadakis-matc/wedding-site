@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box } from 'rebass';
 import { Link } from 'react-router-dom';
 
 const H1 = styled.h1`
-  font-family: 'Life Savers', cursive;
+  font-family: ${props => props.theme.fonts.primary.font4};
   margin: 0 auto;
   text-decoration: none;
   font-size: 1rem;
-  color: #b77b82;
+  color: ${props => props.theme.colors.primary.rose};
   padding: 20px;
 `;
 
