@@ -7,10 +7,10 @@ const Input = styled.input`
   background-color: transparent;
   color: #000;
   border: none;
-  border-bottom: 1px solid #563a21;
+  border-bottom: 1px solid ${props => props.theme.colors.primary.brown};
   outline: none;
   font-size: 1rem;
-  font-family: 'Life Savers', cursive;
+  font-family: ${props => props.theme.fonts.primary.font4};
   text-align: center;
   overflow: hidden;
 `;

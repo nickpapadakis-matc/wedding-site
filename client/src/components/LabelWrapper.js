@@ -6,7 +6,7 @@ const H2 = styled.h2`
   width: 60%;
   margin: 0 auto;
   font-size: 1.2rem;
-  font-family: 'Life Savers', cursive;
+  font-family: ${props => props.theme.fonts.primary.font4};
 `;
 
 const LabelWrapper = ({ children, ...props }) => (

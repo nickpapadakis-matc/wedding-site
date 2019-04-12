@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Radio = styled.input`
   cursor: pointer;
-  color: #563a21;
+  color: ${props => props.theme.colors.primary.brown};
 `;
 
 const StyledRadio = props => (

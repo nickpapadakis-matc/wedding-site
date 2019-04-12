@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledButton1 } from './StyledButton1';
-import { Link } from 'react-router-dom';
 import StyledInput from './StyledInput';
 import StyledForm from './StyledForm';
 import LabelWrapper from './LabelWrapper';

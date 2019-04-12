@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Flex, Box } from 'rebass';
+import { Box } from 'rebass';
 import { StyledButton1 } from './StyledButton1';
 
 const StyledWrap = styled(Box)`
